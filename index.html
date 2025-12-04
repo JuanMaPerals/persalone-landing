@@ -2,238 +2,192 @@
 <html lang="es">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-    content="PersalOne, tu asistente de IA privada para el día a día digital. Te ayuda a revisar mensajes, enlaces y situaciones online que generan dudas." />
-  <title>PersalOne - Asistente de IA privada para seguridad digital</title>
-  <link rel="stylesheet" href="styles.css" />
+    content="PersalOne, tu asistente de IA para decisiones digitales serias. Analiza mensajes, enlaces y ajustes sensibles con calma, sin escaneos automáticos ni alarmismo.">
+  <title>PersalOne - Asistente de IA para decisiones digitales serias</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-  <a href="#main" class="skip-link">Saltar al contenido principal</a>
+  <a href="#contenido-principal" class="skip-link">Saltar al contenido principal</a>
 
-  <header>
+  <header class="site-header">
     <div class="container">
-      <h1>PersalOne</h1>
       <nav aria-label="Navegación principal">
         <ul>
           <li><a href="/" aria-current="page">Inicio</a></li>
-          <li><a href="privacy.html">Privacidad</a></li>
-          <li><a href="delete-account.html">Eliminar cuenta</a></li>
-          <li><a href="cookies.html">Cookies</a></li>
+          <li><a href="/privacy">Privacidad</a></li>
+          <li><a href="/delete-account">Eliminar cuenta y datos</a></li>
+          <li><a href="/cookies">Política de cookies</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main id="main">
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="container">
-        <h1>PersalOne, tu asistente de IA privada para el día a día digital</h1>
-        <p>Te ayuda a revisar mensajes, enlaces y situaciones online que generan dudas, con explicaciones claras, pasos
-          concretos y sin dramatismos.</p>
-      </div>
-    </section>
-
+  <section class="hero">
     <div class="container">
-      <!-- Qué es PersalOne -->
-      <section>
-        <h2>Qué es PersalOne</h2>
-        <p>PersalOne es un asistente de IA pensado para personas y equipos que quieren tomar decisiones digitales con
-          más calma.</p>
-        <p>No escanea tu móvil ni entra en tus apps: tú decides qué texto pegas o escribes y la app te ayuda a entender
-          los posibles riesgos.</p>
+      <div class="hero-content">
+        <div class="hero-branding">
+          <img
+            src="https://res.cloudinary.com/dwhdevibb/image/upload/v1764001663/Gemini_Generated_Image_ynjayjynjayjynja_1_s9bbyg.png"
+            alt="Logo de PersalOne" class="logo-image">
+          <div class="logo-text">
+            <span class="brand-letter-ocre">P</span><span>ersal</span><span
+              class="brand-letter-ocre">O</span><span>ne</span>
+          </div>
+        </div>
+        <h1>PersalOne, tu asistente de IA para decisiones digitales serias</h1>
+        <p class="hero-subtitle">Analiza mensajes, enlaces y ajustes sensibles con calma, sin escaneos automáticos ni
+          alarmismo.</p>
+        <a href="mailto:info@persalone.com?subject=Quiero unirme a la beta de PersalOne" class="cta-button">Quiero
+          unirme a la beta</a>
+        <p class="beta-note">PersalOne está en fase beta. No realizaremos cobros sin avisarte de forma clara y por
+          adelantado.</p>
+      </div>
+    </div>
+  </section>
 
-        <ul class="benefits">
-          <li>Revisar mensajes sospechosos (SMS, WhatsApp, email, redes sociales).</li>
-          <li>Entender mejor los riesgos online sin lenguaje de miedo.</li>
-          <li>Consejos paso a paso, pensados para personas mayores y perfiles neurodivergentes.</li>
-          <li>Configuración de privacidad y accesibilidad desde la propia app.</li>
+  <main id="contenido-principal">
+    <div class="container">
+
+      <section class="content-section">
+        <h2>Qué es PersalOne</h2>
+        <p>PersalOne es un asistente de IA enfocado en decisiones digitales importantes, no es un antivirus ni una
+          herramienta casual de chat.</p>
+        <p>Te ayuda a revisar mensajes y enlaces sospechosos cuando tienes dudas sobre su autenticidad o seguridad.</p>
+        <p>También te facilita preparar y explicar situaciones de riesgo digital a otras personas, adaptando el mensaje
+          a su nivel de experiencia.</p>
+      </section>
+
+      <section class="content-section">
+        <h2>Qué puedes hacer hoy con PersalOne</h2>
+        <ul class="benefits-list">
+          <li>Revisar mensajes que te generan dudas (SMS, WhatsApp, email, redes sociales).</li>
+          <li>Analizar enlaces antes de hacer clic o introducir datos sensibles.</li>
+          <li>Revisar avisos de bancos, operadoras o administraciones públicas online.</li>
+          <li>Preparar un resumen claro para compartir con otra persona de confianza.</li>
+          <li>Crear casos en el Centro de revisiones para documentar qué ha pasado y qué decisión has tomado.</li>
         </ul>
       </section>
 
-      <!-- Cómo funciona -->
-      <section>
+      <section class="content-section">
         <h2>Cómo funciona</h2>
-        <ol class="steps">
-          <li>Pegas o escribes el mensaje, enlace o situación que te preocupa.</li>
-          <li>PersalOne analiza el contenido desde el backend, usando IA.</li>
-          <li>Te devuelve una explicación clara y opciones para decidir qué hacer.</li>
+        <ol class="steps-list">
+          <li>Pegas o describes la situación (mensaje, enlace, captura de pantalla, etc.).</li>
+          <li>PersalOne analiza los elementos clave y las señales de riesgo.</li>
+          <li>Recibes un resumen claro con:
+            <ul>
+              <li>nivel de riesgo aproximado,</li>
+              <li>señales a favor y en contra,</li>
+              <li>recomendaciones de próximos pasos.</li>
+            </ul>
+          </li>
         </ol>
+      </section>
 
-        <div class="privacy-notice">
-          <p><strong>Tus datos no se usan para entrenar modelos publicitarios ni se comparten con terceros con fines
-              comerciales.</strong></p>
+      <section class="content-section">
+        <h2>Cómo va más allá de 'copiar y pegar en una IA'</h2>
+        <p>PersalOne está diseñado específicamente para prevención y decisiones, no solo para chats sueltos o
+          conversaciones casuales.</p>
+        <p>Te ayuda a documentar casos y a mantener un criterio consistente a lo largo del tiempo.</p>
+        <p>Facilita que puedas explicar la situación a personas con distintos niveles de experiencia digital o que
+          necesitan apoyo adicional.</p>
+      </section>
+
+      <section class="content-section">
+        <h2>Para quién es</h2>
+        <ul class="benefits-list">
+          <li><strong>Personas que toman decisiones sensibles online</strong> (banca, trámites, gestiones
+            administrativas).</li>
+          <li><strong>Personas que acompañan a otras en el uso de tecnología</strong> y quieren un apoyo adicional para
+            explicar riesgos y decisiones.</li>
+          <li><strong>Equipos pequeños</strong> que necesitan revisar mensajes y enlaces con criterio y sin alarmismo.
+          </li>
+        </ul>
+      </section>
+
+      <section class="content-section">
+        <h2>Límites del servicio (qué NO hace PersalOne)</h2>
+        <p>Para evitar confusiones, es importante aclarar que PersalOne <strong>NO</strong> es:</p>
+        <ul class="limits-list">
+          <li>Un antivirus ni un antispyware.</li>
+          <li>Un sistema de control parental.</li>
+          <li>Una herramienta que escanea tu móvil o tus aplicaciones de forma automática.</li>
+          <li>Un sustituto de tu banco, la policía o servicios de emergencia.</li>
+          <li>Una garantía al 100 % de que algo sea seguro o fraudulento.</li>
+        </ul>
+        <p>PersalOne es una ayuda para que puedas decidir con más información y más calma. La decisión final siempre es
+          tuya.</p>
+      </section>
+
+      <section class="content-section highlight-box">
+        <h2>Estado actual (beta)</h2>
+        <p><strong>PersalOne está en fase beta.</strong></p>
+        <p>Algunas funciones pueden cambiar o mejorar con el tiempo según las necesidades reales de quienes usan el
+          servicio.</p>
+        <p>Los planes y precios son informativos; no se realizarán cobros sin tu consentimiento claro y previo.</p>
+      </section>
+
+      <section class="content-section faq-section">
+        <h2>Preguntas frecuentes</h2>
+
+        <div class="faq-item">
+          <h3>¿Cómo usa mis datos PersalOne?</h3>
+          <p>Solo analizamos el texto que tú decides enviar. No escaneamos tu móvil, ni tus aplicaciones, ni tus
+            archivos personales. Los mensajes que compartes se procesan en nuestro backend mediante IA para identificar
+            señales de riesgo, pero no se usan para entrenar modelos comerciales ni se comparten con terceros con fines
+            publicitarios. Aplicamos principios de minimización de datos y puedes consultar más detalles en nuestra <a
+              href="/privacy">Política de privacidad</a>.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>¿Necesito ser experto en tecnología para usarlo?</h3>
+          <p>No. PersalOne está pensado precisamente para personas que no son expertas en ciberseguridad. Las
+            explicaciones son claras, sin jerga técnica innecesaria, y los próximos pasos se presentan de forma concreta
+            y accionable.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>¿Qué pasa si no sé exactamente qué información pegar en la app?</h3>
+          <p>No pasa nada. Puedes pegar o escribir lo que te parezca relevante: el mensaje completo, solo el enlace, una
+            descripción de la situación, o incluso una captura de pantalla en texto. El asistente trabaja con la
+            información que le proporciones y te ayudará a identificar qué elementos son más importantes.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>¿Puedo usar PersalOne para acompañar a otra persona?</h3>
+          <p>Sí. De hecho, una de las funcionalidades clave es que puedes preparar explicaciones adaptadas para
+            compartir con personas mayores, familiares con poca experiencia digital, o cualquier persona que necesite
+            apoyo. El objetivo es que puedas traducir situaciones complejas a un lenguaje claro y sin alarmismo.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>¿Puedo borrar mi cuenta y mis datos?</h3>
+          <p>Sí. Puedes solicitar la eliminación de tu cuenta y todos tus datos asociados en cualquier momento. Consulta
+            la página <a href="/delete-account">Eliminar cuenta y datos</a> para ver las instrucciones detalladas, o
+            escribe directamente a <a href="mailto:info@persalone.com">info@persalone.com</a>.</p>
         </div>
       </section>
 
-
-      <!-- Qué puedes hacer hoy con PersalOne -->
-      <section>
-        <h2>Qué puedes hacer hoy con PersalOne</h2>
-        <p>La app está en beta, pero ya puedes usarla para:</p>
-
-        <ul class="benefits">
-          <li>Revisar mensajes sospechosos que te lleguen por SMS, WhatsApp, email o redes sociales.</li>
-          <li>Pedir una explicación sencilla de por qué algo podría ser una estafa o un riesgo.</li>
-          <li>Obtener pasos concretos para decidir qué hacer: ignorar, bloquear, borrar, llamar a tu banco, etc.</li>
-          <li>Preparar mensajes para ayudar a otra persona (por ejemplo, tu madre, tu padre o un familiar mayor) sin
-            asustarla.</li>
-          <li>Ajustar el nivel de detalle de las explicaciones y el tono de los consejos.</li>
-          <li>Aprender y practicar ciberseguridad digital a tu ritmo, con ejemplos reales y explicaciones adaptadas a
-            tus necesidades y capacidades.</li>
-        </ul>
-
-        <p>Solo analizamos el texto que tú decides pegar o escribir. No escaneamos tu móvil, ni tus fotos, ni tus otras
-          apps.</p>
-      </section>
-
-      <!-- Estado actual (beta) -->
-      <section class="beta-notice">
-        <h2>Estado actual (beta)</h2>
-        <p>PersalOne está en beta. Esto significa:</p>
-        <ul>
-          <li>Podemos cambiar cosas de diseño y funcionamiento según el feedback.</li>
-          <li>No realizamos cobros automáticos sin tu permiso explícito.</li>
-          <li>La app no sustituye el consejo profesional ni las guías oficiales de seguridad.</li>
-        </ul>
-      </section>
     </div>
-
-    <!-- Lo que NO hace PersalOne -->
-    <div class="wrap">
-      <section>
-        <h2>Lo que NO hace PersalOne</h2>
-        <p>Para que no haya confusiones, PersalOne <strong>no</strong> es:</p>
-
-        <ul>
-          <li>Un antivirus.</li>
-          <li>Un sistema de control parental.</li>
-          <li>Una app que bloquee automáticamente llamadas, SMS o webs.</li>
-          <li>Un sustituto de la policía, tu banco o los servicios oficiales de emergencia.</li>
-          <li>Una herramienta para espiar el móvil de otra persona.</li>
-        </ul>
-
-        <p>PersalOne es una ayuda para pensar con más calma. Te da contexto, explicaciones y opciones, pero la decisión
-          final siempre es tuya.</p>
-      </section>
-
-      <!-- Cómo encaja con otras herramientas -->
-      <section>
-        <h2>Cómo encaja con otras herramientas</h2>
-        <p>PersalOne no compite con antivirus, bloqueadores de llamadas ni soluciones técnicas avanzadas. Se puede usar
-          junto a ellas.</p>
-
-        <p>Mientras otras herramientas se centran en bloquear, escanear o filtrar, PersalOne se centra en:</p>
-
-        <ul class="benefits">
-          <li>Traducir el "mundillo digital" a un lenguaje comprensible.</li>
-          <li>Acompañarte cuando tienes dudas con un mensaje concreto.</li>
-          <li>Ayudarte a explicar a otras personas (familia, alumnado, comunidad) qué está pasando sin generar pánico.
-          </li>
-        </ul>
-
-        <p>Nuestro objetivo es que te sientas menos sola o solo frente a los riesgos digitales del día a día.</p>
-      </section>
-    </div>
-
-    <!-- Preguntas frecuentes -->
-    <div class="wrap">
-      <section class="section-faq">
-        <h2>Preguntas frecuentes</h2>
-
-        <details class="faq-item">
-          <summary>¿Cómo uso PersalOne?</summary>
-          <p>Copias el mensaje o texto que te genera dudas, lo pegas en la app y eliges el tipo de ayuda que necesitas.
-            PersalOne analiza el contenido y te devuelve una explicación clara con recomendaciones.</p>
-        </details>
-
-        <details class="faq-item">
-          <summary>¿La app ve todo lo que hago en el móvil?</summary>
-          <p>No. PersalOne solo analiza el texto que tú decides enviar. No escanea tus otras aplicaciones ni tus fotos
-            ni tus archivos.</p>
-        </details>
-
-        <details class="faq-item">
-          <summary>¿Mis datos se usan para entrenar modelos o para publicidad?</summary>
-          <p>No usamos tus mensajes para hacer publicidad ni para crear perfiles comerciales. El análisis de IA se hace
-            desde nuestro backend y aplicamos medidas de minimización de datos.</p>
-        </details>
-
-        <details class="faq-item">
-          <summary>¿Puede equivocarse?</summary>
-          <p>Sí. Ningún sistema es perfecto. PersalOne te ayuda a entender mejor la situación, pero no puede garantizar
-            al 100 % que algo sea seguro o peligroso. Ante la duda, siempre recomendamos ser prudente y, si hace falta,
-            contactar con tu banco o con los canales oficiales.</p>
-        </details>
-
-        <details class="faq-item">
-          <summary>¿La app es gratis?</summary>
-          <p>Durante la fase beta, estamos probando PersalOne y afinando el servicio. No realizamos cobros automáticos
-            sin tu permiso explícito. Cualquier posible cambio de modelo se comunicará de forma clara.</p>
-        </details>
-
-        <details class="faq-item">
-          <summary>¿Puedo borrar mi cuenta y mis datos?</summary>
-          <p>Sí. En la app tienes un apartado de "Privacidad y datos" con un enlace a las instrucciones para eliminar tu
-            cuenta. También puedes consultar la página "Eliminar cuenta y datos" en la web.</p>
-        </details>
-      </section>
-    </div>
-
   </main>
 
-  <footer>
+  <footer class="site-footer">
     <div class="container">
       <nav aria-label="Navegación del pie de página">
         <ul>
           <li><a href="/">Inicio</a></li>
-          <li><a href="privacy.html">Política de privacidad</a></li>
-          <li><a href="delete-account.html">Eliminación de cuenta y datos</a></li>
-          <li><a href="cookies.html">Política de cookies</a></li>
+          <li><a href="/privacy">Política de privacidad</a></li>
+          <li><a href="/delete-account">Eliminación de cuenta y datos</a></li>
+          <li><a href="/cookies">Política de cookies</a></li>
         </ul>
       </nav>
-      <p>&copy; 2025 PersalOne - Juan Maria Perals Salvatella</p>
+      <p class="copyright">© 2025 PersalOne – Juan Ma Perals.</p>
     </div>
   </footer>
-  <!-- Cookie Consent Banner -->
-  <div id="cookie-banner" class="cookie-banner" role="dialog" aria-labelledby="cookie-banner-title"
-    aria-describedby="cookie-banner-description" hidden>
-    <div class="cookie-banner-content">
-      <p id="cookie-banner-title" class="cookie-banner-title">Uso de cookies</p>
-      <p id="cookie-banner-description">Usamos solo cookies técnicas para que este sitio funcione correctamente y
-        para recordar tu preferencia sobre este aviso. No utilizamos cookies de publicidad ni de seguimiento.
-      </p>
-      <div class="cookie-banner-actions">
-        <button id="cookie-accept-btn" class="cookie-btn-primary">Aceptar</button>
-        <a href="/cookies" class="cookie-link">Más información</a>
-      </div>
-    </div>
-  </div>
 
-  <script>
-    // Cookie consent banner logic
-    (function () {
-      const CONSENT_KEY = 'persalone_cookie_consent';
-      const banner = document.getElementById('cookie-banner');
-      const acceptBtn = document.getElementById('cookie-accept-btn');
-
-      // Check if consent was already given
-      const hasConsent = localStorage.getItem(CONSENT_KEY);
-
-      if (!hasConsent) {
-        // Show banner if no consent recorded
-        banner.removeAttribute('hidden');
-      }
-
-      // Accept button handler
-      acceptBtn.addEventListener('click', function () {
-        localStorage.setItem(CONSENT_KEY, 'accepted');
-        banner.setAttribute('hidden', '');
-      });
-    })();
-  </script>
+</body>
 
 </html>
