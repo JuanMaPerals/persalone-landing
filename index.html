@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
     content="PersalOne, tu asistente de IA para decisiones digitales serias. Analiza mensajes, enlaces y ajustes sensibles con calma, sin escaneos automáticos ni alarmismo.">
-  <title>PersalOne - Asistente de IA para decisiones digitales serias</title>
+  <title>PeralOne - Asistente de IA para decisiones digitales serias</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -71,7 +71,7 @@
       <section class="content-section">
         <h2>Cómo funciona</h2>
         <ol class="steps-list">
-          <li>Pegas o describes la situación (mensaje, enlace, captura de pantalla, etc.).</li>
+          <li>Compartes o describes la situación (mensaje, enlace, captura de pantalla, etc.).</li>
           <li>PersalOne analiza los elementos clave y las señales de riesgo.</li>
           <li>Recibes un resumen claro con:
             <ul>
@@ -129,42 +129,79 @@
       <section class="content-section faq-section">
         <h2>Preguntas frecuentes</h2>
 
-        <details class="faq-item" open>
-          <summary>¿Cómo usa mis datos PersalOne?</summary>
-          <p>Solo analizamos el texto que tú decides enviar. No escaneamos tu móvil, ni tus aplicaciones, ni tus
-            archivos personales. Los mensajes que compartes se procesan en nuestro backend mediante IA para identificar
-            señales de riesgo, pero no se usan para entrenar modelos comerciales ni se comparten con terceros con fines
-            publicitarios. Aplicamos principios de minimización de datos y puedes consultar más detalles en nuestra <a
-              href="/privacy">Política de privacidad</a>.</p>
-        </details>
+        <div class="faq-accordion">
+          <div class="faq-item" data-faq>
+            <button class="faq-header" type="button" aria-expanded="true" aria-controls="faq-panel-1">
+              <span class="faq-number">01.</span>
+              <span class="faq-question">¿Cómo usa mis datos PersalOne?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-panel" id="faq-panel-1" role="region" aria-labelledby="faq-header-1">
+              <p>Solo analizamos el contenido que tú decides compartir. No escaneamos tu móvil, ni tus aplicaciones, ni
+                tus archivos personales de forma automática. Los mensajes y enlaces que compartes se procesan en nuestro
+                backend mediante IA para identificar señales de riesgo, pero no se usan para entrenar modelos
+                comerciales ni se comparten con terceros con fines publicitarios. Para análisis de URLs, podemos
+                utilizar
+                herramientas técnicas internas (como WebCheck) que se activan únicamente cuando solicitas el análisis.
+                Aplicamos principios de minimización de datos y puedes consultar más detalles en nuestra <a
+                  href="/privacy">Política de privacidad</a>.</p>
+            </div>
+          </div>
 
-        <details class="faq-item">
-          <summary>¿Necesito ser experto en tecnología para usarlo?</summary>
-          <p>No. PersalOne está pensado precisamente para personas que no son expertas en ciberseguridad. Las
-            explicaciones son claras, sin jerga técnica innecesaria, y los próximos pasos se presentan de forma concreta
-            y accionable.</p>
-        </details>
+          <div class="faq-item" data-faq>
+            <button class="faq-header" type="button" aria-expanded="false" aria-controls="faq-panel-2">
+              <span class="faq-number">02.</span>
+              <span class="faq-question">¿Necesito ser experto en tecnología para usarlo?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-panel" id="faq-panel-2" role="region" aria-labelledby="faq-header-2" hidden>
+              <p>No. PersalOne está pensado precisamente para personas que no son expertas en ciberseguridad. Las
+                explicaciones son claras, sin jerga técnica innecesaria, y los próximos pasos se presentan de forma
+                concreta y accionable.</p>
+            </div>
+          </div>
 
-        <details class="faq-item">
-          <summary>¿Qué pasa si no sé exactamente qué información pegar en la app?</summary>
-          <p>No pasa nada. Puedes pegar o escribir lo que te parezca relevante: el mensaje completo, solo el enlace, una
-            descripción de la situación, o incluso una captura de pantalla en texto. El asistente trabaja con la
-            información que le proporciones y te ayudará a identificar qué elementos son más importantes.</p>
-        </details>
+          <div class="faq-item" data-faq>
+            <button class="faq-header" type="button" aria-expanded="false" aria-controls="faq-panel-3">
+              <span class="faq-number">03.</span>
+              <span class="faq-question">¿Qué pasa si no sé exactamente qué información compartir en la app?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-panel" id="faq-panel-3" role="region" aria-labelledby="faq-header-3" hidden>
+              <p>No pasa nada. Puedes compartir o describir lo que te parezca relevante: el mensaje completo, solo el
+                enlace, una descripción de la situación, o incluso una captura de pantalla en texto. El asistente
+                trabaja
+                con la información que le proporciones y te ayudará a identificar qué elementos son más importantes.</p>
+            </div>
+          </div>
 
-        <details class="faq-item">
-          <summary>¿Puedo usar PersalOne para acompañar a otra persona?</summary>
-          <p>Sí. De hecho, una de las funcionalidades clave es que puedes preparar explicaciones adaptadas para
-            compartir con personas mayores, familiares con poca experiencia digital, o cualquier persona que necesite
-            apoyo. El objetivo es que puedas traducir situaciones complejas a un lenguaje claro y sin alarmismo.</p>
-        </details>
+          <div class="faq-item" data-faq>
+            <button class="faq-header" type="button" aria-expanded="false" aria-controls="faq-panel-4">
+              <span class="faq-number">04.</span>
+              <span class="faq-question">¿Puedo usar PersalOne para acompañar a otra persona?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-panel" id="faq-panel-4" role="region" aria-labelledby="faq-header-4" hidden>
+              <p>Sí. De hecho, una de las funcionalidades clave es que puedes preparar explicaciones adaptadas para
+                compartir con personas mayores, familiares con poca experiencia digital, o cualquier persona que
+                necesite
+                apoyo. El objetivo es que puedas traducir situaciones complejas a un lenguaje claro y sin alarmismo.</p>
+            </div>
+          </div>
 
-        <details class="faq-item">
-          <summary>¿Puedo borrar mi cuenta y mis datos?</summary>
-          <p>Sí. Puedes solicitar la eliminación de tu cuenta y todos tus datos asociados en cualquier momento. Consulta
-            la página <a href="/delete-account">Eliminar cuenta y datos</a> para ver las instrucciones detalladas, o
-            escribe directamente a <a href="mailto:info@persalone.com">info@persalone.com</a>.</p>
-        </details>
+          <div class="faq-item" data-faq>
+            <button class="faq-header" type="button" aria-expanded="false" aria-controls="faq-panel-5">
+              <span class="faq-number">05.</span>
+              <span class="faq-question">¿Puedo borrar mi cuenta y mis datos?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-panel" id="faq-panel-5" role="region" aria-labelledby="faq-header-5" hidden>
+              <p>Sí. Puedes solicitar la eliminación de tu cuenta y todos tus datos asociados en cualquier momento.
+                Consulta la página <a href="/delete-account">Eliminar cuenta y datos</a> para ver las instrucciones
+                detalladas, o escribe directamente a <a href="mailto:info@persalone.com">info@persalone.com</a>.</p>
+            </div>
+          </div>
+        </div>
       </section>
 
     </div>
@@ -184,6 +221,8 @@
           class="brand-letter-ocre">O</span>ne – Juan Ma Perals.</p>
     </div>
   </footer>
+
+  <script src="faq.js" defer></script>
 
 </body>
 
