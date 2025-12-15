@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Descubre la app PersalOne - Tu asistente IA para decisiones digitales seguras. WebCheck, IA Ally, Academia LMS y más.">
+  <title>La App - PersalOne</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .app-hero {
+      background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+      color: white;
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .app-hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .app-hero p {
+      font-size: 1.25rem;
+      opacity: 0.95;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 48px;
+      margin: 60px 0;
+    }
+
+    .feature-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .feature-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      font-size: 40px;
+    }
+
+    .feature-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+      color: #2c3e50;
+    }
+
+    .feature-card p {
+      color: #5a6c7d;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .feature-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .tag {
+      background: #e8f4f8;
+      color: #2980b9;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .platform-section {
+      background: #f8f9fa;
+      padding: 60px 0;
+      text-align: center;
+      margin: 60px 0;
+      border-radius: 24px;
+    }
+
+    .platform-badges {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-top: 32px;
+    }
+
+    .platform-badge {
+      background: white;
+      padding: 20px 40px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: #2c3e50;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .cta-section {
+      text-align: center;
+      padding: 80px 0;
+    }
+
+    .cta-section h2 {
+      font-size: 2rem;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 768px) {
+      .app-hero {
+        padding: 48px 24px;
+      }
+
+      .app-hero h1 {
+        font-size: 1.75rem;
+      }
+
+      .app-hero p {
+        font-size: 1rem;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        margin: 40px 0;
+      }
+
+      .feature-card {
+        padding: 24px;
+      }
+
+      .platform-section {
+        padding: 40px 16px;
+        margin: 40px 0;
+      }
+
+      .platform-badges {
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .cta-section {
+        padding: 48px 24px;
+      }
+
+      .cta-section h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a href="#contenido-principal" class="skip-link">Saltar al contenido principal</a>
+
+  <header class="site-header">
+    <div class="container">
+      <nav aria-label="Navegación principal">
+        <ul>
+          <li><a href="/">Inicio</a></li>
+          <li><a href="/app" aria-current="page">La App</a></li>
+          <li><a href="/privacy">Privacidad</a></li>
+          <li><a href="/delete-account">Eliminar cuenta</a></li>
+          <li><a href="/cookies">Cookies</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="app-hero">
+    <div class="container">
+      <h1>Conoce PersalOne</h1>
+      <p>Tu asistente de IA para decisiones digitales seguras</p>
+    </div>
+  </section>
+
+  <main id="contenido-principal">
+    <div class="container">
+
+      <section class="features-grid">
+
+        <!-- WebCheck -->
+        <article class="feature-card">
+          <div class="feature-icon">🔗</div>
+          <h3>WebCheck - Análisis de Enlaces</h3>
+          <p>Analiza enlaces sospechosos antes de hacer clic. Detecta phishing, malware y amenazas con tecnología IA
+            en segundos.</p>
+          <p><strong>Cómo funciona:</strong> Pega cualquier enlace y recibe un análisis completo con nivel de riesgo,
+            advertencias y recomendaciones claras.</p>
+          <div class="feature-tags">
+            <span class="tag">Phishing</span>
+            <span class="tag">Malware</span>
+            <span class="tag">Análisis IA</span>
+          </div>
+        </article>
+
+        <!-- IA Ally -->
+        <article class="feature-card">
+          <div class="feature-icon">💬</div>
+          <h3>IA Ally - Tu Asistente Personal</h3>
+          <p>Conversa en lenguaje natural sobre tus dudas de seguridad. Recibe análisis adaptados a tu nivel de
+            experiencia.</p>
+          <p><strong>Cómo funciona:</strong> Describe tu situación (mensaje sospechoso, duda sobre app, etc.) y el
+            asistente te guía paso a paso.</p>
+          <div class="feature-tags">
+            <span class="tag">Chat IA</span>
+            <span class="tag">Personalizado</span>
+            <span class="tag">Explicaciones claras</span>
+          </div>
+        </article>
+
+        <!-- LMS Academia -->
+        <article class="feature-card">
+          <div class="feature-icon">🎓</div>
+          <h3>Academia - Aprende Ciberseguridad</h3>
+          <p>Módulos interactivos paso a paso. Aprende a protegerte con lecciones prácticas, insignias y seguimiento de
+            progreso.</p>
+          <p><strong>Cómo funciona:</strong> Completa lecciones sobre phishing, contraseñas, privacidad y más. Gana
+            insignias por tu progreso.</p>
+          <div class="feature-tags">
+            <span class="tag">Lecciones</span>
+            <span class="tag">Insignias</span>
+            <span class="tag">Progreso</span>
+          </div>
+        </article>
+
+        <!-- Configuración Dispositivo -->
+        <article class="feature-card">
+          <div class="feature-icon">📱</div>
+          <h3>Configuración Segura de Dispositivo</h3>
+          <p>Guía paso a paso para configurar ajustes de seguridad en tu móvil. Instrucciones específicas por marca y
+            modelo Android/iOS.</p>
+          <p><strong>Cómo funciona:</strong> Detecta tu dispositivo automáticamente y muestra checklist personalizado
+            con enlaces directos a ajustes.</p>
+          <div class="feature-tags">
+            <span class="tag">Android</span>
+            <span class="tag">iOS</span>
+            <span class="tag">Paso a paso</span>
+          </div>
+        </article>
+
+        <!-- Generador Contraseñas -->
+        <article class="feature-card">
+          <div class="feature-icon">🔐</div>
+          <h3>Generador de Contraseñas</h3>
+          <p>Crea contraseñas robustas y únicas al instante. Configurable por longitud y complejidad según tus
+            necesidades.</p>
+          <p><strong>Cómo funciona:</strong> Un clic genera contraseña segura. Copia y usa en tus cuentas importantes.
+          </p>
+          <div class="feature-tags">
+            <span class="tag">Seguridad</span>
+            <span class="tag">Aleatorio</span>
+            <span class="tag">Copia fácil</span>
+          </div>
+        </article>
+
+        <!-- Centro Revisiones -->
+        <article class="feature-card">
+          <div class="feature-icon">📋</div>
+          <h3>Centro de Revisiones y Checklist</h3>
+          <p>Documenta casos, mantén historial de decisiones y accede a checklist básicos de seguridad.</p>
+          <p><strong>Cómo funciona:</strong> Guarda análisis importantes, consulta decisiones pasadas y sigue
+            checklists recomendados.</p>
+          <div class="feature-tags">
+            <span class="tag">Historial</span>
+            <span class="tag">Checklists</span>
+            <span class="tag">Documentación</span>
+          </div>
+        </article>
+
+      </section>
+
+      <section class="platform-section">
+        <h2>Disponible en Android e iOS</h2>
+        <p>PersalOne funciona perfectamente en ambas plataformas con la misma experiencia de usuario.</p>
+        <div class="platform-badges">
+          <div class="platform-badge">
+            <span>🤖</span>
+            <span>Android</span>
+          </div>
+          <div class="platform-badge">
+            <span>🍎</span>
+            <span>iOS</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <h2>Diseñado para Accesibilidad</h2>
+        <ul class="benefits-list">
+          <li><strong>Texto grande:</strong> Activa tamaño de fuente aumentado para leer con menos esfuerzo.</li>
+          <li><strong>Alto contraste:</strong> Modo oscuro y opciones de contraste para mejor visibilidad.</li>
+          <li><strong>Lectura fácil:</strong> Reduce ruido visual y muestra solo lo esencial.</li>
+          <li><strong>Explicaciones paso a paso:</strong> Elige nivel de detalle según tu preferencia.</li>
+        </ul>
+        <p>Pensado para personas neurodivergentes y con distintos ritmos de aprendizaje.</p>
+      </section>
+
+    </div>
+
+    <section class="cta-section">
+      <div class="container">
+        <h2>¿Listo para protegerte mejor?</h2>
+        <p>PersalOne está en fase beta. Únete a la lista de espera.</p>
+        <a href="mailto:info@persalone.com?subject=Quiero unirme a la beta de PersalOne"
+          class="cta-button">Contactar</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 PersalOne - Juan Maria Perals Salvatella</p>
+      <p><a href="/privacy">Privacidad</a> | <a href="/cookies">Cookies</a> | <a
+          href="/delete-account">Eliminar cuenta</a></p>
+    </div>
+  </footer>
+
+</body>
+
+</html>
