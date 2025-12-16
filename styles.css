@@ -128,8 +128,8 @@ body {
    ======================================== */
 
 .hero {
-  background-color: var(--color-primary-green);
-  color: var(--color-white);
+  background-color: var(--color-white);
+  color: var(--color-text);
   padding: var(--spacing-xxl) 0;
   text-align: center;
 }
@@ -156,6 +156,8 @@ body {
   width: 120px;
   height: auto;
   border-radius: var(--border-radius);
+  mix-blend-mode: multiply;
+  background: transparent;
 }
 
 .brand-letter-ocre {
@@ -167,12 +169,13 @@ body {
   font-weight: 700;
   margin-bottom: var(--spacing-md);
   line-height: 1.2;
+  color: var(--color-primary-green);
 }
 
 .hero-subtitle {
   font-size: var(--font-size-lg);
   margin-bottom: var(--spacing-xl);
-  opacity: 0.95;
+  color: var(--color-text);
   line-height: 1.5;
 }
 
