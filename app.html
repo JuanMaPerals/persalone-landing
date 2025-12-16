@@ -5,8 +5,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-    content="Descubre la app PersalOne - Tu asistente IA para decisiones digitales seguras. WebCheck, IA Ally, Academia LMS y más.">
-  <title>La App - PersalOne</title>
+    content="Tu asistente de IA centrado en la privacidad. Analiza enlaces, aprende ciberseguridad y protege tus cuentas con PersalOne.">
+  <title>App PersalOne - Asistente de Privacidad y Seguridad Digital</title>
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://persalone.com/app">
+  <meta property="og:title" content="App PersalOne - Asistente de Privacidad">
+  <meta property="og:description" content="Tu asistente de IA centrado en la privacidad. Analiza enlaces, aprende ciberseguridad y protege tus cuentas.">
+  <meta property="og:locale" content="es_ES">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://persalone.com/app">
+  <meta property="twitter:title" content="App PersalOne - Asistente de Privacidad">
+  <meta property="twitter:description" content="Tu asistente de IA centrado en la privacidad. Analiza enlaces, aprende ciberseguridad y protege tus cuentas.">
   <link rel="stylesheet" href="styles.css">
   <style>
     .app-hero {
@@ -125,6 +138,60 @@
       margin-bottom: 24px;
     }
 
+    .screenshots-section {
+      background: #f8f9fa;
+      padding: 60px 0;
+      margin: 60px 0;
+      border-radius: 24px;
+    }
+
+    .screenshots-section h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 48px;
+      color: #2c3e50;
+    }
+
+    .screenshots-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .screenshot-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .screenshot-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .screenshot-image {
+      width: 100%;
+      height: 400px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 3rem;
+    }
+
+    .screenshot-caption {
+      padding: 20px;
+      text-align: center;
+      color: #2c3e50;
+      font-weight: 600;
+    }
+
     @media (max-width: 768px) {
       .app-hero {
         padding: 48px 24px;
@@ -164,6 +231,21 @@
 
       .cta-section h2 {
         font-size: 1.5rem;
+      }
+
+      .screenshots-section {
+        padding: 40px 16px;
+        margin: 40px 0;
+      }
+
+      .screenshots-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .screenshot-image {
+        height: 300px;
+        font-size: 2rem;
       }
     }
   </style>
@@ -317,12 +399,30 @@
 
     </div>
 
+    <section class="screenshots-section">
+      <h2>La App en Acción</h2>
+      <div class="screenshots-grid">
+        <div class="screenshot-card">
+          <div class="screenshot-image">🏠</div>
+          <div class="screenshot-caption">Pantalla Principal</div>
+        </div>
+        <div class="screenshot-card">
+          <div class="screenshot-image">🔗</div>
+          <div class="screenshot-caption">WebCheck - Análisis de Enlaces</div>
+        </div>
+        <div class="screenshot-card">
+          <div class="screenshot-image">🎓</div>
+          <div class="screenshot-caption">Academia - Insignias y Progreso</div>
+        </div>
+      </div>
+    </section>
+
     <section class="cta-section">
       <div class="container">
-        <h2>¿Listo para protegerte mejor?</h2>
-        <p>PersalOne está en fase beta. Únete a la lista de espera.</p>
-        <a href="mailto:info@persalone.com?subject=Quiero unirme a la beta de PersalOne"
-          class="cta-button">Contactar</a>
+        <h2>Únete a la Beta Cerrada</h2>
+        <p>Protege tu privacidad y toma decisiones digitales más seguras.</p>
+        <a href="mailto:info@juanmaperals.com?subject=Solicitud de acceso a beta de PersalOne"
+          class="cta-button">Solicitar Acceso</a>
       </div>
     </section>
 
