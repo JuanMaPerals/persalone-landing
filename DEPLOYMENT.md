@@ -1,45 +1,121 @@
-# Guía de Despliegue - PersalOne Landing
+# Nginx Configuration for PersalOne Landing
 
-## Objetivo
+## Clean URLs (Remove .html extension)
 
-Servir persalone.com y www.persalone.com con el mismo contenido actualizado, sin 404 en rutas clean (`/app`, `/privacy`, etc.).
-
-## Configuración Nginx (Lista para Copiar/Pegar)
-
-### Opción 1: Redirect www → apex (RECOMENDADO)
-
-Canonical: `https://persalone.com`
-
-```bash
-# Copiar nginx.conf a /etc/nginx/sites-available/
-sudo cp nginx.conf /etc/nginx/sites-available/persalone.com
-
-# Crear symlink en sites-enabled
-sudo ln -s /etc/nginx/sites-available/persalone.com /etc/nginx/sites-enabled/
-
-# Verificar configuración
-sudo nginx -t
-
-# Recargar Nginx
-sudo systemctl reload nginx
-```
-
-### Opción 2: Redirect apex → www
-
-Si prefieres `https://www.persalone.com` como canonical, edita `nginx.conf`:
+Add this configuration to your nginx server block to enable clean URLs:
 
 ```nginx
-# Cambiar en los bloques server:
-server_name persalone.com;
-return 301 https://www.persalone.com$request_uri;
+server {
+    listen 80;
+    listen [::]:80;
+    server_name persalone.com www.persalone.com;
 
-# Y servir desde:
-server_name www.persalone.com;
+    root /var/www/persalone-landing;
+    index index.html;
+
+    # Clean URLs - map /privacy to privacy.html
+    location / {
+        try_files $uri $uri.html $uri/ =404;
+    }
+
+    # Specific mappings for important pages
+    location = /privacy {
+        try_files /privacy.html =404;
+    }
+
+    location = /delete-account {
+        try_files /delete-account.html =404;
+    }
+
+    location = /app {
+        try_files /app.html =404;
+    }
+
+    location = /cookies {
+        try_files /cookies.html =404;
+    }
+
+    # Cache static assets
+    location ~* \.(css|js|jpg|jpeg|png|gif|ico|svg|woff|woff2|ttf|eot)$ {
+        expires 1y;
+        add_header Cache-Control "public, immutable";
+    }
+
+    # Security headers
+    add_header X-Frame-Options "SAMEORIGIN" always;
+    add_header X-Content-Type-Options "nosniff" always;
+    add_header X-XSS-Protection "1; mode=block" always;
+    add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+
+    # Gzip compression
+    gzip on;
+    gzip_vary on;
+    gzip_types text/plain text/css text/xml text/javascript application/javascript application/xml+rss application/json;
+    gzip_min_length 256;
+
+    # Error pages
+    error_page 404 /index.html;
+}
+
+# HTTPS redirect (recommended)
+server {
+    listen 80;
+    listen [::]:80;
+    server_name persalone.com www.persalone.com;
+    return 301 https://persalone.com$request_uri;
+}
+
+server {
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+    server_name persalone.com www.persalone.com;
+
+    # SSL configuration (adjust paths to your certificates)
+    ssl_certificate /path/to/your/fullchain.pem;
+    ssl_certificate_key /path/to/your/privkey.pem;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_ciphers HIGH:!aNULL:!MD5;
+    ssl_prefer_server_ciphers on;
+
+    # ... (same configuration as above)
+}
 ```
 
-## Estructura de Archivos en Servidor
+## Alternative: Apache .htaccess
 
+If you're using Apache instead of Nginx, create a `.htaccess` file:
+
+```apache
+# Enable rewrite engine
+RewriteEngine On
+
+# Remove .html extension
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+)$ $1.html [L]
+
+# Force HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Security headers
+Header always set X-Frame-Options "SAMEORIGIN"
+Header always set X-Content-Type-Options "nosniff"
+Header always set X-XSS-Protection "1; mode=block"
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+# Cache static assets
+<FilesMatch "\.(css|js|jpg|jpeg|png|gif|ico|svg|woff|woff2|ttf|eot)$">
+  Header set Cache-Control "max-age=31536000, public, immutable"
+</FilesMatch>
 ```
+
+## Deployment Checklist
+
+### 1. Upload Files
+Upload all files to your web server:
+```bash
 /var/www/persalone-landing/
 ├── index.html
 ├── app.html
@@ -47,182 +123,86 @@ server_name www.persalone.com;
 ├── delete-account.html
 ├── cookies.html
 ├── styles.css
+├── cookies-banner.js
 ├── faq.js
-└── cookies-banner.js
+└── assets/
+    └── img/
+        ├── app-home.png
+        ├── app-webcheck.png
+        └── app-academy.png
 ```
 
-## Deployment desde Git
+### 2. Configure Server
+- **Nginx**: Add configuration to `/etc/nginx/sites-available/persalone.com`
+- **Apache**: Create `.htaccess` in root directory
+
+### 3. Test URLs
+Verify all pages respond with **200 OK**:
 
 ```bash
-# 1. SSH al servidor
-ssh user@persalone.com
+# Test privacy page
+curl -I https://persalone.com/privacy
+# Expected: HTTP/2 200
 
-# 2. Navegar al directorio web
-cd /var/www/persalone-landing
+# Test delete-account page
+curl -I https://persalone.com/delete-account
+# Expected: HTTP/2 200
 
-# 3. Pull latest changes
-git pull origin main
+# Test app page
+curl -I https://persalone.com/app
+# Expected: HTTP/2 200
 
-# 4. Verificar permisos
-sudo chown -R www-data:www-data /var/www/persalone-landing
-sudo chmod -R 755 /var/www/persalone-landing
-
-# 5. Recargar Nginx
-sudo systemctl reload nginx
+# Test with .html extension (should also work)
+curl -I https://persalone.com/app.html
+# Expected: HTTP/2 200
 ```
 
-## Configuración SSL/TLS
+### 4. Verify Content
+Open in browser and verify:
+- [ ] `/privacy` loads correctly
+- [ ] `/delete-account` loads correctly
+- [ ] `/app` loads correctly (with screenshots and CTA)
+- [ ] No "próximamente" or "beta" text visible
+- [ ] CTA button links to `mailto:info@persalone.com`
+- [ ] All CSS and images load correctly
 
-### Con Let's Encrypt (Certbot)
-
+### 5. SEO Check
+Verify meta tags:
 ```bash
-# Instalar certbot
-sudo apt update
-sudo apt install certbot python3-certbot-nginx
-
-# Obtener certificado
-sudo certbot --nginx -d persalone.com -d www.persalone.com
-
-# Auto-renovación (ya configurada por certbot)
-sudo certbot renew --dry-run
+curl -s https://persalone.com/app | grep -E '<title>|<meta name="description"|og:title'
 ```
 
-### Con certificado manual
+Expected output:
+- `<title>App PersalOne - Asistente de Privacidad y Seguridad Digital</title>`
+- `<meta name="description" content="Tu asistente de IA centrado en la privacidad..."`
+- `<meta property="og:title" content="App PersalOne - Asistente de Privacidad">`
 
-Edita rutas en `nginx.conf`:
+## IONOS Hosting Specifics
 
-```nginx
-ssl_certificate /ruta/a/tu/certificado.crt;
-ssl_certificate_key /ruta/a/tu/clave-privada.key;
-```
+If hosted on IONOS, you may need to:
 
-## Mapeo de Rutas (Sin Framework)
-
-La configuración maneja:
-
-| URL Limpia          | Archivo Real         | Método                          |
-|---------------------|----------------------|---------------------------------|
-| `/`                 | `index.html`         | `try_files /index.html`         |
-| `/app`              | `app.html`           | `location = /app`               |
-| `/privacy`          | `privacy.html`       | `location = /privacy`           |
-| `/delete-account`   | `delete-account.html`| `location = /delete-account`    |
-| `/cookies`          | `cookies.html`       | `location = /cookies`           |
-
-## Canonical Redirect
-
-- **www.persalone.com** → Redirect 301 a **persalone.com**
-- **http://persalone.com** → Redirect 301 a **https://persalone.com**
-
-Resultado: Una sola URL canonical para SEO.
-
-## Checklist de Verificación (Sin curl)
-
-### 1. Verificar Canonical Redirect
-
-- [ ] Abrir `http://www.persalone.com` → Debe redirigir a `https://persalone.com`
-- [ ] Abrir `http://persalone.com` → Debe redirigir a `https://persalone.com`
-- [ ] Verificar en barra de navegador que URL final es `https://persalone.com`
-
-### 2. Verificar Contenido Actualizado
-
-- [ ] Abrir `https://persalone.com`
-- [ ] Verificar que `<h1>` muestra: **"PersalOne: tu asistente de IA centrado en la privacidad y el cuidado digital."**
-- [ ] Verificar que hero tiene fondo blanco (no verde oscuro)
-- [ ] Verificar que CTA muestra: **"Únete a la beta cerrada"** (no "Próximamente")
-- [ ] Verificar logo sin fondo blanco
-
-### 3. Verificar Rutas Clean (Sin 404)
-
-- [ ] `https://persalone.com/app` → Abre página de app (200 OK)
-- [ ] `https://persalone.com/privacy` → Abre política privacidad (200 OK)
-- [ ] `https://persalone.com/delete-account` → Abre página eliminación (200 OK)
-- [ ] `https://persalone.com/cookies` → Abre política cookies (200 OK)
-
-### 4. Verificar Assets
-
-- [ ] `styles.css` carga correctamente
-- [ ] `faq.js` funciona (acordeón FAQ se expande/colapsa)
-- [ ] `cookies-banner.js` funciona (banner aparece y se puede cerrar)
+1. **Use .htaccess** (IONOS typically uses Apache)
+2. **Enable SSL** via IONOS control panel (usually free with Let's Encrypt)
+3. **Set document root** to the uploaded directory
+4. **Verify PHP is not required** (static HTML only)
 
 ## Troubleshooting
 
-### 404 en rutas clean
+### 404 Errors
+- Check file names match exactly (case-sensitive on Linux servers)
+- Verify server configuration is active: `sudo nginx -t` or check Apache logs
+- Check file permissions: `chmod 644 *.html`
 
-```bash
-# Verificar location blocks en nginx.conf
-sudo nginx -T | grep "location ="
+### CSS Not Loading
+- Verify `styles.css` is in the same directory as HTML files
+- Check browser console for 404 errors
+- Clear browser cache
 
-# Ver logs de error
-sudo tail -f /var/log/nginx/error.log
-```
+### Clean URLs Not Working
+- Verify rewrite engine is enabled (Nginx/Apache)
+- Check server logs: `/var/log/nginx/error.log` or `/var/log/apache2/error.log`
+- Test with .html extension first to isolate the issue
 
-### Redirect loop
+---
 
-- Verificar que solo hay un redirect por dominio (www → apex O apex → www, no ambos)
-- Comprobar `return 301` statements en nginx.conf
-
-### CSS no carga
-
-```bash
-# Verificar permisos
-ls -la /var/www/persalone-landing/styles.css
-
-# Debe ser readable por www-data
-sudo chmod 644 /var/www/persalone-landing/styles.css
-```
-
-### SSL no funciona
-
-```bash
-# Verificar certificados
-sudo certbot certificates
-
-# Renovar manualmente
-sudo certbot renew
-```
-
-## Logs
-
-```bash
-# Access log
-sudo tail -f /var/log/nginx/access.log
-
-# Error log
-sudo tail -f /var/log/nginx/error.log
-```
-
-## Rollback (Si algo falla)
-
-```bash
-# Volver a commit anterior
-cd /var/www/persalone-landing
-git log --oneline -5
-git reset --hard <commit-sha>
-
-# O restaurar backup
-sudo cp -r /var/backups/persalone-landing/* /var/www/persalone-landing/
-
-# Recargar nginx
-sudo systemctl reload nginx
-```
-
-## Performance
-
-Cache headers ya configurados en `nginx.conf`:
-
-- **HTML:** Sin cache (siempre fresh)
-- **Assets estáticos (CSS/JS/imágenes):** 1 año con `immutable`
-- **Gzip:** Habilitado para texto/CSS/JS
-
-## Security
-
-Headers de seguridad ya configurados:
-
-- `X-Frame-Options: SAMEORIGIN`
-- `X-Content-Type-Options: nosniff`
-- `X-XSS-Protection: 1; mode=block`
-- Deny access a archivos ocultos (`.git`, etc.)
-
-## Contacto
-
-Para issues de deployment: info@persalone.com
+**Last Updated:** 2025-12-16
