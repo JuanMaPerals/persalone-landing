@@ -27,7 +27,7 @@ grep -c "info@persalone.com" *.html
 # Total: 9 ✓
 
 # Sin emails incorrectos
-grep "info@juanmaperals.com" *.html
+grep "info@persalone.com" *.html
 # (sin resultados) ✓
 
 # Sin texto próximamente/beta (ya limpio)

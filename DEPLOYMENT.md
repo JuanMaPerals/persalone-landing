@@ -163,7 +163,7 @@ Open in browser and verify:
 - [ ] `/delete-account` loads correctly
 - [ ] `/app` loads correctly (with screenshots and CTA)
 - [ ] No "próximamente" or "beta" text visible
-- [ ] CTA button links to `mailto:info@juanmaperals.com`
+- [ ] CTA button links to `mailto:info@persalone.com`
 - [ ] All CSS and images load correctly
 
 ### 5. SEO Check
